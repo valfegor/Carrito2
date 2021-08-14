@@ -30,6 +30,7 @@ CargarEventListeners();
 
 function CargarEventListeners(){
     //al dar clic en agregar al carrito
+    //recordemos que listacursos es el div padre que contiene los demas cursos.
     listacursos.addEventListener('click', agregarCurso);
 }
 
@@ -140,5 +141,11 @@ function carritoHtml() {
 
 function limpiarHTML(){
     //lo que yo quiero limpiar en este caso es el tbody
-    contenedorCarrito.innerHTML = "";
+    /*
+    Forma lenta 
+    ContenedorCarrito.innerHTML = "";
+    */
+
+    //forma rapida el while se ejecuta mientras una condicion sea evaluada como verdadera
+    
 }
