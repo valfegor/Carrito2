@@ -106,7 +106,7 @@ function leerdatoscurso(curso){
   
     
     
-
+    console.log(existe);
 
     //llenar los elementos al arreglo.
     //aqui vamos a utilizar el spread operator
