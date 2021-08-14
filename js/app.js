@@ -70,6 +70,9 @@ function agregarCurso(e){
 //vamos a hacer una funcion que lea los elementos del curso.
 
 function leerdatoscurso(curso){
+
+    //curso es el div padre
+    console.log(articulosCarrito[0]);
     console.log(curso);
 
     //crear objeto con el contenido del curso actual.
@@ -89,7 +92,18 @@ function leerdatoscurso(curso){
     }
 
 
+    //ahora voy a generar una validacion de que si el usuario da clic y el curso ya fue agregado simplemente la cantidad aumente.
+
+    //recordando .some permite iterar sobre un arreglo de objetos y verificar si un elemento existe en el.
+
+    //es decir lo que le pasamos aqui fue el curso que es la parte sobre la cual estamos iterando
+
+    //resumiendo va a buscar y si en alguno de esos espacios de memoria es igual es decir despues de que el arreglo ya este lleno ya que al principio es un arreglo vacio , al dar clic nuevamente lo que hace es que se recorre cada parte del array , dandole nombre a la variable como curso , de esa variable comparo curso.id , ahora comparo el valor que tengo el arreglo con el objeto antes de llenarlo.
+    const existe = articulosCarrito.some(curso => curso.id === infoCurso.id)
+  
     
+
+
 
     //llenar los elementos al arreglo.
     //aqui vamos a utilizar el spread operator
