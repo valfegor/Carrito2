@@ -37,11 +37,27 @@ function agregarCurso(e){
     //para omitir el event bubling hacemos uso de .contains.
     //de esta manera nos aseguramos que solo se ejecute al dar clic en el boton
     if(e.target.classList.contains('agregar-carrito')){
-        //invocamos la funcion
-        leerdatoscurso();
+      
 
         //adicional a todo es importante revisar que desde el elemento padre o div padre.
         //puedo acceder a sus otras funciones
+
+        const cursoSeleccionado = (e.target.parentElement.parentElement);
+
+        /*
+        Mi codigo
+
+        const titulo = cursoSeleccionado.querySelector("h4").textContent
+        const imagen = cursoSeleccionado.querySelector("img").src
+        const precio = cursoSeleccionado.querySelector(".precio").textContent)
+        */
+       
+        
+
+          //invocamos la funcion
+          leerdatoscurso();
+
+
     }
 }
 
