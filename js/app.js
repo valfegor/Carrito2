@@ -46,7 +46,7 @@ function añadirAcarrito(cursito) {
 }
 
 function pintarHtml(carrito){
-        
+        borrarHTML();
     carrito.forEach(element => {
             const row = document.createElement('tr');
 
@@ -55,10 +55,22 @@ function pintarHtml(carrito){
             <td>${element.nombre}</td>
             <td>${element.precio}</td>
             <td>${element.Cantidad}</td>
-            <td>${element.codigo}</td>
+            <td>
+            <a href="#" class="borrar-curso" data-id="${element.codigo}">X</a>
+            </td>
             `
 
             listaCarrito.appendChild(row);
     });
+
+}
+
+
+
+function borrarHTML(){
+
+    while(listaCarrito.firstChild){
+        listaCarrito.removeChild(listaCarrito.firstChild);
+    }
 
 }
