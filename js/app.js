@@ -124,10 +124,39 @@ function carritoHtml() {
         //tenemos que crear un tr.
 
         const Row = document.createElement('tr');
+        //el orden de los td es importante ya que tenemos una table
+
+        /*
+        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+        */
+
+        //el id me va a ayudar a identificar que curso esta intentando eliminar el usuario
         Row.innerHTML = `
+        <td>
+           <img src = "${curso.imagen}">
+        </td>
         <td>
             ${curso.titulo}
         </td>
+        <td>
+            ${curso.precio}
+        </td>
+        <td>
+            ${curso.cantidad}
+        </td>
+        <td>
+        
+        <a href="#" class="borrar-curso" data-id="${curso.id}">X</a>
+         </td>
         
         `
         //al contenedor del carrito , le vamos a agregar en el carrito tbody.
@@ -147,5 +176,28 @@ function limpiarHTML(){
     */
 
     //forma rapida el while se ejecuta mientras una condicion sea evaluada como verdadera
+
+    //lo que quiere decir es lo siguiente si ese contenedor carrito tiene almenos un elemento
+    //el codigo se seguira ejecutando
+    while(ContenedorCarrito.firstChild){
+        //aqui se esta eliminando por referencia
+        //un elemento se borra desde el padre o por si mismo
+        ContenedorCarrito.removeChild(ContenedorCarrito.firstChild);
+
+        
+        console.log(ContenedorCarrito.firstChild)
+    }
+
+    
+
+    /*
+        tenemos un div de la siguiente manera
+        se esta revisando con el while que mientras haya un hijo la condicion se cumple ya que hay tres elementos en este ejemplo son 3 parrafos , el elemento padre que es el div va a eliminar un hijo por el primero , es decir elimina el 1 y despues vuelve a comprobar , asi hasta que todo el div este totalmente vacio , en este caso del programa funciona de manera de que se agrega el arreglo 
+        <div>
+        p 1
+        p 2
+        p 3
+        </div>
+    */
     
 }
