@@ -36,7 +36,9 @@ function añadirAcarrito(cursito) {
   };
 
   //para recordar este tipo de validaciones se realiza antes de que el arreglo se llene
+  //es decir tiene que estar en 0 , luego de eso si se valida cuando ya tengo datos.
   const existe = carrito.some(element=>element.nombre===curso.nombre);
+  
 
   console.log(existe);
 
