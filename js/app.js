@@ -88,6 +88,9 @@ function leerdatoscurso(curso){
         cantidad:1,
     }
 
+
+    
+
     //llenar los elementos al arreglo.
     //aqui vamos a utilizar el spread operator
     //tambien se pudo haber utilizado articulosCarrito.push(infoCurso);
@@ -127,6 +130,15 @@ function carritoHtml() {
         //el orden de los td es importante ya que tenemos una table
 
         /*
+        Recordemos que podemos hacer uso de destructuring para evitarnos colocar
+        curso.titulo , curso.precio , curso.cantidad,
+
+        ya tenemos una referencia podemos crear una variable
+    
+        /*
+
+    
+        /*
         <thead>
                                             <tr>
                                                 <th>Imagen</th>
@@ -138,24 +150,24 @@ function carritoHtml() {
                                         </thead>
                                         <tbody></tbody>
         */
-
+        const{imagen,titulo,precio,cantidad,id}=curso;
         //el id me va a ayudar a identificar que curso esta intentando eliminar el usuario
         Row.innerHTML = `
         <td>
-           <img src = "${curso.imagen}">
+           <img src = "${imagen}">
         </td>
         <td>
-            ${curso.titulo}
+            ${titulo}
         </td>
         <td>
-            ${curso.precio}
+            ${precio}
         </td>
         <td>
-            ${curso.cantidad}
+            ${cantidad}
         </td>
         <td>
         
-        <a href="#" class="borrar-curso" data-id="${curso.id}">X</a>
+        <a href="#" class="borrar-curso" data-id="${id}">X</a>
          </td>
         
         `
