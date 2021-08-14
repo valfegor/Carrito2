@@ -26,7 +26,7 @@ function añadir(e) {
 function añadirAcarrito(cursito) {
 
     //Destructuring el array
-
+    
   let curso = {
     imagen:cursito.querySelector('img').src,
     nombre:cursito.querySelector('h4').textContent,
@@ -37,5 +37,28 @@ function añadirAcarrito(cursito) {
 
   carrito=[...carrito,curso];
 
-  console.log(carrito);
+  
+
+  
+
+  pintarHtml(carrito);
+  
+}
+
+function pintarHtml(carrito){
+        
+    carrito.forEach(element => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+            <td> <img src="${element.imagen}"></td>
+            <td>${element.nombre}</td>
+            <td>${element.precio}</td>
+            <td>${element.Cantidad}</td>
+            <td>${element.codigo}</td>
+            `
+
+            listaCarrito.appendChild(row);
+    });
+
 }
