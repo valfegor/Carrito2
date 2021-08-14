@@ -21,7 +21,10 @@ const ContenedorCarrito = document.querySelector('#lista-carrito tbody');
 //este boton esta dibujado en la tabla
 const vaciarCarritobtn = document.querySelector('#vaciar-carrito');
 
-
+//Este va a ser nuestro carrito de compras , es un array vacio.
+//conforme el usuario va dando clic se va a ir agregando
+//se va a llenar conforme se de clic.
+let articulosCarrito = [];
 //buena practica es tener una funcion que registre todos los event listeners.
 CargarEventListeners();
 
@@ -78,11 +81,64 @@ function leerdatoscurso(curso){
 
     const infoCurso = {
         imagen : curso.querySelector('img').src,
-        titulo = curso.querySelector('h4').textContent,
-        precio = curso.querySelector('.precio span').textContent,
+        titulo : curso.querySelector('h4').textContent,
+        precio : curso.querySelector('.precio span').textContent,
         id:curso.querySelector('a').getAttribute('data-id'),
         cantidad:1,
     }
 
+    //llenar los elementos al arreglo.
+    //aqui vamos a utilizar el spread operator
+    //tambien se pudo haber utilizado articulosCarrito.push(infoCurso);
+    //voy a tomar una copia del carrito de compras ... ya que la primera vez va a estar vacio
+    //es un acumuluador
+    //lo que hacemos aqui en el segundo parametro es el objeto delos datos de ocmo lo vamos a llenar
+    articulosCarrito = [...articulosCarrito , infoCurso];
 
+    console.log(articulosCarrito);
+
+    carritoHtml();
+}
+
+
+//funcion que pinta el carrito de la compra.
+
+//ESTA FUNCION SE MANEJA DE LA SIGUIENTE manera
+//AL HACER CLIC SE LIMPIA EL HTML , ES DECIR SIEMPRE AL INICIO VA A SER UNA CADENA VACIA = ""
+//LUEGO RECORRE CADA UNO DE LOS ELEMENTOS , LO PINTA EN EL TBODY.
+//AHORA SI YO HAGO CLIC NUEVAMENTE EN OTRO CURSO EL ARRAY YA CONTIENE 2 ELEMENTOS , POR LO TANTO SE LIMPIA Y ESCRIBE LOS 2 ELEMENTOS NADA MAS , ASI SUCESIVAMENTE POR ESO ES IMPORTANTE LIMPIAR EL HTML
+function carritoHtml() {
+
+    //como obligatoriamente es un array recordemos que podemos hacer uso en este caso ya que es un array de objetos de Foreach.
+
+    //limpiar el HTML.
+
+    limpiarHTML();
+
+    //funcion flecha
+    //recorre el carrito y genera el html
+    articulosCarrito.forEach(curso =>{
+        //cada curso se va a ir insertando el tablebody.
+
+        //tenemos que crear un tr.
+
+        const Row = document.createElement('tr');
+        Row.innerHTML = `
+        <td>
+            ${curso.titulo}
+        </td>
+        
+        `
+        //al contenedor del carrito , le vamos a agregar en el carrito tbody.
+        //le pasamos al tbody que tenemos como contenedor
+        //aqui ocurre un problema si yo sigo dando clic me va a ir agregando al tbody pero es importante conocer de que este tbody debe limpiar el html por que si no se limpia va a seguir agregando elementos al carrito.
+        ContenedorCarrito.appendChild(Row);
+        })
+}
+
+//eliminar los cursos del tbody.
+
+function limpiarHTML(){
+    //lo que yo quiero limpiar en este caso es el tbody
+    contenedorCarrito.innerHTML = "";
 }
