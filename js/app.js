@@ -37,6 +37,16 @@ function agregarCurso(e){
     //para omitir el event bubling hacemos uso de .contains.
     //de esta manera nos aseguramos que solo se ejecute al dar clic en el boton
     if(e.target.classList.contains('agregar-carrito')){
-        alert("diste clic en ese boton");
+        //invocamos la funcion
+        leerdatoscurso();
+
+        //adicional a todo es importante revisar que desde el elemento padre o div padre.
+        //puedo acceder a sus otras funciones
     }
+}
+
+//vamos a hacer una funcion que lea los elementos del curso.
+
+function leerdatoscurso(){
+
 }
