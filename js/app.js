@@ -73,11 +73,15 @@ function leerdatoscurso(curso){
     //cada curso va a tener un ID , si revisamos la estructura del html.
     //al finalizar cada curso tenemos data-id="11"
     //se obtiene el atributo
+    //en esta parte vamos a controlar que si el usuario da clic varias veces en el mismo boton,
+    //se agrege la cantidad 
+
     const infoCurso = {
         imagen : curso.querySelector('img').src,
         titulo = curso.querySelector('h4').textContent,
         precio = curso.querySelector('.precio span').textContent,
         id:curso.querySelector('a').getAttribute('data-id'),
+        cantidad:1,
     }
 
 
