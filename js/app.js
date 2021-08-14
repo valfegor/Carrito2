@@ -42,7 +42,9 @@ function agregarCurso(e){
         //adicional a todo es importante revisar que desde el elemento padre o div padre.
         //puedo acceder a sus otras funciones
 
-        const cursoSeleccionado = (e.target.parentElement.parentElement);
+        //de aqui vamos a empezar a sacar toda la informacion del curso
+        //es decir cuando el usuario de clic especificamente a ese elemento se activa el proceso.
+        const cursoSeleccionado = e.target.parentElement.parentElement;
 
         /*
         Mi codigo
@@ -52,10 +54,10 @@ function agregarCurso(e){
         const precio = cursoSeleccionado.querySelector(".precio").textContent)
         */
        
-        
 
-          //invocamos la funcion
-          leerdatoscurso();
+
+          //invocamos la funcion , pasamos como parametro el curso al cual le estan dando clic
+          leerdatoscurso(cursoSeleccionado);
 
 
     }
@@ -63,6 +65,20 @@ function agregarCurso(e){
 
 //vamos a hacer una funcion que lea los elementos del curso.
 
-function leerdatoscurso(){
+function leerdatoscurso(curso){
+    console.log(curso);
+
+    //crear objeto con el contenido del curso actual.
+    //generalmente se hace con document , pero recordemos que se tiene la referencia del curso.
+    //cada curso va a tener un ID , si revisamos la estructura del html.
+    //al finalizar cada curso tenemos data-id="11"
+    //se obtiene el atributo
+    const infoCurso = {
+        imagen : curso.querySelector('img').src,
+        titulo = curso.querySelector('h4').textContent,
+        precio = curso.querySelector('.precio span').textContent,
+        id:curso.querySelector('a').getAttribute('data-id'),
+    }
+
 
 }
