@@ -38,11 +38,27 @@ function añadirAcarrito(cursito) {
   //para recordar este tipo de validaciones se realiza antes de que el arreglo se llene
   //es decir tiene que estar en 0 , luego de eso si se valida cuando ya tengo datos.
   const existe = carrito.some(element=>element.nombre===curso.nombre);
+
+  if(existe) {
+    const cursoActualizado = carrito.map(cursoAc =>{
+        if(cursoAc.nombre === curso.nombre){
+          cursoAc.Cantidad++;
+          return cursoAc;
+        }
+        else{
+          return cursoAc;
+        }
+    })
+    carrito = [...cursoActualizado];
+  }
   
+  else{
+    carrito=[...carrito,curso]; 
+  }
 
   console.log(existe);
 
-  carrito=[...carrito,curso];
+  
 
   
 
