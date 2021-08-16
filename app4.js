@@ -51,7 +51,14 @@ function pintar(carro){
     
     carro.forEach((cursos)=>{
 
-        console.log(cursos.titulo);
+        row = document.createElement("tr");
+
+        row.innerHTML = `
+        <td><img src="${cursos.imagen}" class="imagen-curso u-full-width"></td>
+        `
+        
+        seleccion.appendChild(row);
+
     });
    
 }
