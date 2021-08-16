@@ -15,8 +15,11 @@ function cargarlisteners(){
 function cargar(e){
   
     if(e.target.classList.contains("agregar-carrito")){
-        curso_verd
+        curso_verdadero = e.target.parentElement.parentElement;
+        
+        cursando(curso_verdadero);
     };
 
 
 }
+
