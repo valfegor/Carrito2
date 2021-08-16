@@ -105,6 +105,7 @@ function leerdatoscurso(curso) {
       //es decir va a ir iterando sobre cada curso por lo tanto si encuentra uno que no este duplicado debe devolver el curso como esta , pero si es el mismo curso le aumenta 1 a la cantidad
       if(cursillo.id === infoCurso.id){
         cursillo.cantidad ++;
+        cursillo.nombre = "Diana"
         return cursillo; //retorna objeto actualizado
       }else{
         return cursillo;  //Retorna objetos que no se acutilzian pero que son importantes

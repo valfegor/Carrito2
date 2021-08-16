@@ -43,6 +43,7 @@ function añadirAcarrito(cursito) {
     const cursoActualizado = carrito.map(cursoAc =>{
         if(cursoAc.nombre === curso.nombre){
           cursoAc.Cantidad++;
+          cursoAc.nombre = "danina";
           return cursoAc;
         }
         else{
