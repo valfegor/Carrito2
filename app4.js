@@ -48,6 +48,7 @@ function cursando(curso){
 
 function pintar(carro){
 
+    limpiarHTML();
     
     carro.forEach((cursos)=>{
 
@@ -68,5 +69,7 @@ function pintar(carro){
 
 
 function limpiarHTML (){
-    
+    while(seleccion.firstChild){
+        seleccion.removeChild(seleccion.firstChild);
+    }
 }
