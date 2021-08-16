@@ -23,3 +23,11 @@ function cargar(e){
 
 }
 
+function cursando(curso){
+
+    const cursando = {
+        imagen: curso.querySelector("img").src
+    }
+
+    console.log(cursando);
+}
