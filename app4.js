@@ -37,9 +37,27 @@ function cursando(curso){
         id:curso.querySelector(".agregar-carrito").getAttribute("data-id"),
     }
 
-    
+    let existe = carrito.some(curs => curs.titulo === cursando.titulo);
 
-    carrito = [...carrito,cursando];
+
+    if(existe){
+        carro_cantidad = carrito.map(cursoactualizado=>{
+            if(cursoactualizado.titulo===cursando.titulo){
+                cursoactualizado.cantidad ++;
+                return cursoactualizado;
+            }
+            else{
+                return cursoactualizado;
+            }
+
+            
+        })
+        carrito =[...carro_cantidad];
+    }else{
+        carrito = [...carrito,cursando];
+    }
+
+    
 
     pintar(carrito);
 
