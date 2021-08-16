@@ -4,6 +4,10 @@ curso_seleccion = document.querySelector("#lista-cursos");
 
 
 
+let carrito = [];
+
+
+
 cargarlisteners();
 
 
@@ -26,8 +30,28 @@ function cargar(e){
 function cursando(curso){
 
     const cursando = {
-        imagen: curso.querySelector("img").src
+        imagen: curso.querySelector("img").src,
+        titulo:curso.querySelector("h4").textContent,
+        precio: curso.querySelector(".precio span"),
+        cantidad:1,
+        id:curso.querySelector(".agregar-carrito").getAttribute("data-id"),
     }
 
-    console.log(cursando);
+    
+
+    carrito = [...carrito,cursando];
+
+    pintar(carrito);
+
+}
+
+
+function pintar(carro){
+
+    
+    carro.forEach((cursos)=>{
+
+        console.log(cursos.titulo);
+    });
+   
 }
