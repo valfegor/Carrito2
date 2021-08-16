@@ -32,7 +32,7 @@ function cursando(curso){
     const cursando = {
         imagen: curso.querySelector("img").src,
         titulo:curso.querySelector("h4").textContent,
-        precio: curso.querySelector(".precio span"),
+        precio: curso.querySelector(".precio span").textContent,
         cantidad:1,
         id:curso.querySelector(".agregar-carrito").getAttribute("data-id"),
     }
@@ -55,10 +55,18 @@ function pintar(carro){
 
         row.innerHTML = `
         <td><img src="${cursos.imagen}" class="imagen-curso u-full-width"></td>
+        <td>${cursos.titulo}</td>
+        <td>${cursos.precio}</td>
+        <td>${cursos.cantidad}</td>
         `
         
         seleccion.appendChild(row);
 
     });
    
+}
+
+
+function limpiarHTML (){
+    
 }
