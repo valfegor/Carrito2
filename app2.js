@@ -35,6 +35,8 @@ function CargarEventListeners() {
   //recordemos este listener me va a permitir eliminar los elementos del carrito , para lo que voy a hacer uso de el div carrito que es el que contiene los demas elementos , tambien podria yo eliminarlo desde el sub-menu
 
   carrito.addEventListener("click",eliminarcurso);
+
+  vaciarCarritobtn.addEventListener("click",vaciar_carrito);
 }
 
 //funciones.
@@ -268,4 +270,12 @@ function eliminarcurso(e){
     carritoHtml();
     console.log(articulosCarrito);  
   }
+}
+
+
+//vaciar carrito
+
+function vaciar_carrito(){
+    articulosCarrito=[];
+    carritoHtml();
 }

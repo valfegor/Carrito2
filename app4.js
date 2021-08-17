@@ -1,8 +1,8 @@
-seleccion = document.querySelector("#lista-carrito tbody");
+let seleccion = document.querySelector("#lista-carrito tbody");
 
-curso_seleccion = document.querySelector("#lista-cursos");
+let curso_seleccion = document.querySelector("#lista-cursos");
 
-
+let eliminar = document.querySelector("#carrito");
 
 let carrito = [];
 
@@ -14,10 +14,11 @@ cargarlisteners();
 
 function cargarlisteners(){
     curso_seleccion.addEventListener("click",cargar);
+    eliminar.addEventListener("click",eliminate);
 }
 
 function cargar(e){
-  
+    e.preventDefault();
     if(e.target.classList.contains("agregar-carrito")){
         curso_verdadero = e.target.parentElement.parentElement;
         
@@ -77,6 +78,10 @@ function pintar(carro){
         <td>${cursos.titulo}</td>
         <td>${cursos.precio}</td>
         <td>${cursos.cantidad}</td>
+        <td>
+        
+        <a href="#" class="borrar-curso" data-id="${cursos.id}">X</a>
+         </td>
         `
         
         seleccion.appendChild(row);
@@ -91,3 +96,16 @@ function limpiarHTML (){
         seleccion.removeChild(seleccion.firstChild);
     }
 }
+
+function eliminate(e){
+    console.log(e.target.classList);
+    
+    if(e.target.classList.contains("borrar-curso")){
+        const Elim = e.target.getAttribute('data-id');
+
+        carrito = carrito.filter(curso=>curso.id !== Elim);
+
+        pintar(carrito);
+    }
+}
+
