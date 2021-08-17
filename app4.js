@@ -21,7 +21,7 @@ function cargar(e){
     e.preventDefault();
     if(e.target.classList.contains("agregar-carrito")){
         curso_verdadero = e.target.parentElement.parentElement;
-        
+        console.log(curso_verdadero)
         cursando(curso_verdadero);
     };
 
