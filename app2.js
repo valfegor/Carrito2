@@ -31,6 +31,10 @@ function CargarEventListeners() {
   //al dar clic en agregar al carrito
   //recordemos que listacursos es el div padre que contiene los demas cursos.
   listacursos.addEventListener("click", agregarCurso);
+
+  //recordemos este listener me va a permitir eliminar los elementos del carrito , para lo que voy a hacer uso de el div carrito que es el que contiene los demas elementos , tambien podria yo eliminarlo desde el sub-menu
+
+  carrito.addEventListener("click",eliminarcurso);
 }
 
 //funciones.
@@ -243,4 +247,25 @@ function limpiarHTML() {
         p 3
         </div>
     */
+}
+
+//elimina el curso del carrito.
+
+//Les paso el e por que quiero seleccionar uno de los elementos tal cual lo hicimos con el lista-elementos
+function eliminarcurso(e){
+  if(e.target.classList.contains('borrar-curso')){
+    //Se puede hacer uso del e.target.getAttribute('data-id');
+    //obtenemos el id del curso.
+
+    const cursoId = e.target.getAttribute('data-id');
+
+    console.log(cursoId);
+
+    //eliminar por data-id.
+
+    articulosCarrito = articulosCarrito.filter(curso=>curso.id !== cursoId);
+
+    carritoHtml();
+    console.log(articulosCarrito);  
+  }
 }
